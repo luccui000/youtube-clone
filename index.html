@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Youtube Clone</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body> 
+    <div class="container">
+        <nav class="navbar" id="nav">
+            <div class="leftbar"> 
+                <label for="toggle">
+                    <span class="material-icons">
+                        menu
+                    </span>
+                </label>
+                <input type="checkbox" hidden id="toggle">
+                <img src="./youtube.png" alt="">
+                <div class="sidebar">
+                    <ul class="sidebar__list">
+                        <li class="sidebar__item">
+                            <a class="sidebar__link">
+                                <div class="sidebar__item--item">
+                                    <span class="material-icons">
+                                        home
+                                    </span>
+                                </div>
+                                <div class="sidebar__item--text">Home</div>
+                            </a>
+                        </li>
+                        <li class="sidebar__item">
+                            <a class="sidebar__link">
+                                <div class="sidebar__item--item">
+                                    <span class="material-icons">
+                                        explore
+                                    </span>
+                                </div>
+                                <div class="sidebar__item--text">Explore</div>
+                            </a>
+                        </li>
+                        <li class="sidebar__item">
+                            <a class="sidebar__link">
+                                <div class="sidebar__item--item">
+                                    <span class="material-icons">
+                                        subscriptions
+                                    </span>
+                                </div>
+                                <div class="sidebar__item--text">Subscription</div>
+                            </a>
+                        </li>
+                        <li class="sidebar__item">
+                            <a class="sidebar__link">
+                                <div class="sidebar__item--item">
+                                    <span class="material-icons">
+                                        library_music
+                                    </span>
+                                </div>
+                                <div class="sidebar__item--text">Library</div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="center">
+                <div class="input__group">
+                    <input type="text" placeholder="Search">
+                    <span class="material-icons center__icon search">
+                        search
+                    </span>
+                </div>
+                <div>
+                    <span class="material-icons center__icon mic" id="micBtn">
+                        mic
+                    </span> 
+                </div>
+            </div>
+            <div class="rightbar">
+                <ul class="tool__group">
+                    <li class="tool__item">
+                        <a class="tool__link">
+                            <span class="material-icons">
+                                video_call
+                            </span>
+                        </a>
+                    </li>
+                    <!-- open__tool--modal -->
+                    <li class="tool__item " id="toggleAppModal" > 
+                        <a class="tool__link" id="apps">
+                            <span class="material-icons">
+                                apps
+                            </span>
+                        </a>
+                        <div class="tool__modal tool__appsmodal">
+                            <ul class="tool__modal--list">
+                                <li class="tool__modal--item">
+                                    <a href="" class="tool__modal--link">
+                                        <img class="tool__modal--image" src="https://www.freepnglogos.com/uploads/youtube-tv-png/youtube-tv-youtube-watch-record-live-apk-download-from-moboplay-21.png" alt="">
+                                        <span class="tool__modal--text">Youtube TV</span>
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class="tool__modal--list">
+                                <li class="tool__modal--item">
+                                    <a href="" class="tool__modal--link">
+                                        <img class="tool__modal--image" src="https://user-images.githubusercontent.com/868109/63057127-5d3e8780-be9e-11e9-9488-bf280a5ff1ed.png" alt="">
+                                        <span class="tool__modal--text">Youtube Music</span>
+                                    </a>
+                                </li>
+                                <li class="tool__modal--item">
+                                    <a href="" class="tool__modal--link">
+                                        <img class="tool__modal--image" src="https://anhnbt.com/apps/wp-content/uploads/2019/01/unnamed.png" alt="">
+                                        <span class="tool__modal--text">Youtube Kids</span>
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class="tool__modal--list">
+                                <li class="tool__modal--item">
+                                    <a href="" class="tool__modal--link">
+                                        <img class="tool__modal--image" src="https://icon-library.com/images/youtube-app-icon-transparent/youtube-app-icon-transparent-27.jpg" alt="">
+                                        <span class="tool__modal--text">Youtube Academy</span>
+                                    </a>
+                                </li>
+                                <li class="tool__modal--item">
+                                    <a href="" class="tool__modal--link">
+                                        <img class="tool__modal--image" src="https://icon-library.com/images/youtube-app-icon-transparent/youtube-app-icon-transparent-27.jpg" alt="">
+                                        <span class="tool__modal--text">Youtube for Artists</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="tool__item" id="toggleNotificationModal">
+                        <a class="tool__link" id="notificationBtn">
+                            <span class="material-icons">
+                                notifications
+                            </span>
+                        </a>
+                        <div class="tool__modal tool__notificationmodal" >
+                            <div class="tool__notificationmodal--header">
+                                <h3>Notifications</h3>
+                                <span class="material-icons">
+                                    settings
+                                </span>                                     
+                            </div>
+                            <div class="tool__notificationmodal--body">
+                                <ul class="tool__notificationmodal--list">
+                                    <li class="tool__notificationmodal--item">
+                                        <a class="tool__notificationmodal--link">
+                                            <img class="tool__notificationmodal--avatar" src="https://scontent.fsgn5-6.fna.fbcdn.net/v/t39.30808-1/cp0/p74x74/242048651_1396253077436502_8256306576975845052_n.jpg?_nc_cat=106&ccb=1-5&_nc_sid=7206a8&_nc_ohc=_U6KFwBUBJEAX98rzz2&_nc_oc=AQnOpkzE84oeH_ojXElVF745iKFdmJNhWUMbiN0AdZ0wjTZHRWnfTpSfvazY3Uh_eCxGCW6WJeg4fOnj6Xba9W0a&_nc_ht=scontent.fsgn5-6.fna&oh=88757d0994643056556256849f319aa0&oe=614ECE3E" >
+                                            <div class="tool__notificationmodal--content">
+                                                <div class="tool__notificationmodal--view">
+                                                    <h4 class="tool__notificationmodal--text">The Linux Experiment đã tải lên: GNOME 41 - The first step towards a GNOME Platform?</h4>
+                                                    <img class="tool__notificationmodal--preview" src="https://laravelnews.imgix.net/images/laravel-kafka-featured.png?ixlib=php-3.3.1" alt="" class="tool__notificationmodal--img">
+                                                </div>
+                                                <div class="tool__notificationmodal--setting">
+                                                    
+                                                </div>
+                                                <div class="tool__notificationmodal--timestamp">
+                                                    10 hours ago
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="tool__notificationmodal--item">
+                                        <a class="tool__notificationmodal--link">
+                                            <img class="tool__notificationmodal--avatar" src="https://scontent.fsgn5-6.fna.fbcdn.net/v/t39.30808-1/cp0/p74x74/242048651_1396253077436502_8256306576975845052_n.jpg?_nc_cat=106&ccb=1-5&_nc_sid=7206a8&_nc_ohc=_U6KFwBUBJEAX98rzz2&_nc_oc=AQnOpkzE84oeH_ojXElVF745iKFdmJNhWUMbiN0AdZ0wjTZHRWnfTpSfvazY3Uh_eCxGCW6WJeg4fOnj6Xba9W0a&_nc_ht=scontent.fsgn5-6.fna&oh=88757d0994643056556256849f319aa0&oe=614ECE3E" >
+                                            <div class="tool__notificationmodal--content">
+                                                <div class="tool__notificationmodal--view">
+                                                    <h4 class="tool__notificationmodal--text">The Linux Experiment đã tải lên: GNOME 41 - The first step towards a GNOME Platform?</h4>
+                                                    <img class="tool__notificationmodal--preview" src="https://laravelnews.imgix.net/images/laravel-kafka-featured.png?ixlib=php-3.3.1" alt="" class="tool__notificationmodal--img">
+                                                </div>
+                                                <div class="tool__notificationmodal--setting">
+                                                    
+                                                </div>
+                                                <div class="tool__notificationmodal--timestamp">
+                                                    10 hours ago
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="tool__notificationmodal--item">
+                                        <a class="tool__notificationmodal--link">
+                                            <img class="tool__notificationmodal--avatar" src="https://scontent.fsgn5-6.fna.fbcdn.net/v/t39.30808-1/cp0/p74x74/242048651_1396253077436502_8256306576975845052_n.jpg?_nc_cat=106&ccb=1-5&_nc_sid=7206a8&_nc_ohc=_U6KFwBUBJEAX98rzz2&_nc_oc=AQnOpkzE84oeH_ojXElVF745iKFdmJNhWUMbiN0AdZ0wjTZHRWnfTpSfvazY3Uh_eCxGCW6WJeg4fOnj6Xba9W0a&_nc_ht=scontent.fsgn5-6.fna&oh=88757d0994643056556256849f319aa0&oe=614ECE3E" >
+                                            <div class="tool__notificationmodal--content">
+                                                <div class="tool__notificationmodal--view">
+                                                    <h4 class="tool__notificationmodal--text">The Linux Experiment đã tải lên: GNOME 41 - The first step towards a GNOME Platform?</h4>
+                                                    <img class="tool__notificationmodal--preview" src="https://laravelnews.imgix.net/images/laravel-kafka-featured.png?ixlib=php-3.3.1" alt="" class="tool__notificationmodal--img">
+                                                </div>
+                                                <div class="tool__notificationmodal--setting">
+                                                    
+                                                </div>
+                                                <div class="tool__notificationmodal--timestamp">
+                                                    10 hours ago
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="tool__notificationmodal--item">
+                                        <a class="tool__notificationmodal--link">
+                                            <img class="tool__notificationmodal--avatar" src="https://scontent.fsgn5-6.fna.fbcdn.net/v/t39.30808-1/cp0/p74x74/242048651_1396253077436502_8256306576975845052_n.jpg?_nc_cat=106&ccb=1-5&_nc_sid=7206a8&_nc_ohc=_U6KFwBUBJEAX98rzz2&_nc_oc=AQnOpkzE84oeH_ojXElVF745iKFdmJNhWUMbiN0AdZ0wjTZHRWnfTpSfvazY3Uh_eCxGCW6WJeg4fOnj6Xba9W0a&_nc_ht=scontent.fsgn5-6.fna&oh=88757d0994643056556256849f319aa0&oe=614ECE3E" >
+                                            <div class="tool__notificationmodal--content">
+                                                <div class="tool__notificationmodal--view">
+                                                    <h4 class="tool__notificationmodal--text">The Linux Experiment đã tải lên: GNOME 41 - The first step towards a GNOME Platform?</h4>
+                                                    <img class="tool__notificationmodal--preview" src="https://laravelnews.imgix.net/images/laravel-kafka-featured.png?ixlib=php-3.3.1" alt="" class="tool__notificationmodal--img">
+                                                </div>
+                                                <div class="tool__notificationmodal--setting">
+                                                    
+                                                </div>
+                                                <div class="tool__notificationmodal--timestamp">
+                                                    10 hours ago
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li> 
+                                    <li class="tool__notificationmodal--item">
+                                        <a class="tool__notificationmodal--link">
+                                            <img class="tool__notificationmodal--avatar" src="https://scontent.fsgn5-6.fna.fbcdn.net/v/t39.30808-1/cp0/p74x74/242048651_1396253077436502_8256306576975845052_n.jpg?_nc_cat=106&ccb=1-5&_nc_sid=7206a8&_nc_ohc=_U6KFwBUBJEAX98rzz2&_nc_oc=AQnOpkzE84oeH_ojXElVF745iKFdmJNhWUMbiN0AdZ0wjTZHRWnfTpSfvazY3Uh_eCxGCW6WJeg4fOnj6Xba9W0a&_nc_ht=scontent.fsgn5-6.fna&oh=88757d0994643056556256849f319aa0&oe=614ECE3E" >
+                                            <div class="tool__notificationmodal--content">
+                                                <div class="tool__notificationmodal--view">
+                                                    <h4 class="tool__notificationmodal--text">The Linux Experiment đã tải lên: GNOME 41 - The first step towards a GNOME Platform?</h4>
+                                                    <img class="tool__notificationmodal--preview" src="https://laravelnews.imgix.net/images/laravel-kafka-featured.png?ixlib=php-3.3.1" alt="" class="tool__notificationmodal--img">
+                                                </div>
+                                                <div class="tool__notificationmodal--setting">
+                                                    
+                                                </div>
+                                                <div class="tool__notificationmodal--timestamp">
+                                                    10 hours ago
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li> 
+                                    <li class="tool__notificationmodal--item">
+                                        <a class="tool__notificationmodal--link">
+                                            <img class="tool__notificationmodal--avatar" src="https://scontent.fsgn5-6.fna.fbcdn.net/v/t39.30808-1/cp0/p74x74/242048651_1396253077436502_8256306576975845052_n.jpg?_nc_cat=106&ccb=1-5&_nc_sid=7206a8&_nc_ohc=_U6KFwBUBJEAX98rzz2&_nc_oc=AQnOpkzE84oeH_ojXElVF745iKFdmJNhWUMbiN0AdZ0wjTZHRWnfTpSfvazY3Uh_eCxGCW6WJeg4fOnj6Xba9W0a&_nc_ht=scontent.fsgn5-6.fna&oh=88757d0994643056556256849f319aa0&oe=614ECE3E" >
+                                            <div class="tool__notificationmodal--content">
+                                                <div class="tool__notificationmodal--view">
+                                                    <h4 class="tool__notificationmodal--text">The Linux Experiment đã tải lên: GNOME 41 - The first step towards a GNOME Platform?</h4>
+                                                    <img class="tool__notificationmodal--preview" src="https://laravelnews.imgix.net/images/laravel-kafka-featured.png?ixlib=php-3.3.1" alt="" class="tool__notificationmodal--img">
+                                                </div>
+                                                <div class="tool__notificationmodal--setting">
+                                                    
+                                                </div>
+                                                <div class="tool__notificationmodal--timestamp">
+                                                    10 hours ago
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li> 
+                                    <li class="tool__notificationmodal--item">
+                                        <a class="tool__notificationmodal--link">
+                                            <img class="tool__notificationmodal--avatar" src="https://scontent.fsgn5-6.fna.fbcdn.net/v/t39.30808-1/cp0/p74x74/242048651_1396253077436502_8256306576975845052_n.jpg?_nc_cat=106&ccb=1-5&_nc_sid=7206a8&_nc_ohc=_U6KFwBUBJEAX98rzz2&_nc_oc=AQnOpkzE84oeH_ojXElVF745iKFdmJNhWUMbiN0AdZ0wjTZHRWnfTpSfvazY3Uh_eCxGCW6WJeg4fOnj6Xba9W0a&_nc_ht=scontent.fsgn5-6.fna&oh=88757d0994643056556256849f319aa0&oe=614ECE3E" >
+                                            <div class="tool__notificationmodal--content">
+                                                <div class="tool__notificationmodal--view">
+                                                    <h4 class="tool__notificationmodal--text">The Linux Experiment đã tải lên: GNOME 41 - The first step towards a GNOME Platform?</h4>
+                                                    <img class="tool__notificationmodal--preview" src="https://laravelnews.imgix.net/images/laravel-kafka-featured.png?ixlib=php-3.3.1" alt="" class="tool__notificationmodal--img">
+                                                </div>
+                                                <div class="tool__notificationmodal--setting">
+                                                    
+                                                </div>
+                                                <div class="tool__notificationmodal--timestamp">
+                                                    10 hours ago
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li> 
+                                    <li class="tool__notificationmodal--item">
+                                        <a class="tool__notificationmodal--link">
+                                            <img class="tool__notificationmodal--avatar" src="https://scontent.fsgn5-6.fna.fbcdn.net/v/t39.30808-1/cp0/p74x74/242048651_1396253077436502_8256306576975845052_n.jpg?_nc_cat=106&ccb=1-5&_nc_sid=7206a8&_nc_ohc=_U6KFwBUBJEAX98rzz2&_nc_oc=AQnOpkzE84oeH_ojXElVF745iKFdmJNhWUMbiN0AdZ0wjTZHRWnfTpSfvazY3Uh_eCxGCW6WJeg4fOnj6Xba9W0a&_nc_ht=scontent.fsgn5-6.fna&oh=88757d0994643056556256849f319aa0&oe=614ECE3E" >
+                                            <div class="tool__notificationmodal--content">
+                                                <div class="tool__notificationmodal--view">
+                                                    <h4 class="tool__notificationmodal--text">The Linux Experiment đã tải lên: GNOME 41 - The first step towards a GNOME Platform?</h4>
+                                                    <img class="tool__notificationmodal--preview" src="https://laravelnews.imgix.net/images/laravel-kafka-featured.png?ixlib=php-3.3.1" alt="" class="tool__notificationmodal--img">
+                                                </div>
+                                                <div class="tool__notificationmodal--setting">
+                                                    
+                                                </div>
+                                                <div class="tool__notificationmodal--timestamp">
+                                                    10 hours ago
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>  
+                                </ul>
+                            </div>
+                        </div>
+                    </li> 
+                </ul>
+                <div class="navbar__account">
+                    <img id="user-avatar" class="navbar__account--avatar" src="https://scontent.fsgn5-6.fna.fbcdn.net/v/t39.30808-1/cp0/p74x74/242048651_1396253077436502_8256306576975845052_n.jpg?_nc_cat=106&ccb=1-5&_nc_sid=7206a8&_nc_ohc=_U6KFwBUBJEAX98rzz2&_nc_oc=AQnOpkzE84oeH_ojXElVF745iKFdmJNhWUMbiN0AdZ0wjTZHRWnfTpSfvazY3Uh_eCxGCW6WJeg4fOnj6Xba9W0a&_nc_ht=scontent.fsgn5-6.fna&oh=88757d0994643056556256849f319aa0&oe=614ECE3E" alt="">
+                    <div class="navbar__accountmodal" id="toggleAccountModal">
+                        <ul class="navbar__accountmodal--list">
+                            <li class="navbar__accountmodal--item">
+                                <a href="" class="navbar__accountmodal--link account">
+                                    <img class="navbar__account--avatar" src="https://scontent.fsgn5-6.fna.fbcdn.net/v/t39.30808-1/cp0/p74x74/242048651_1396253077436502_8256306576975845052_n.jpg?_nc_cat=106&ccb=1-5&_nc_sid=7206a8&_nc_ohc=_U6KFwBUBJEAX98rzz2&_nc_oc=AQnOpkzE84oeH_ojXElVF745iKFdmJNhWUMbiN0AdZ0wjTZHRWnfTpSfvazY3Uh_eCxGCW6WJeg4fOnj6Xba9W0a&_nc_ht=scontent.fsgn5-6.fna&oh=88757d0994643056556256849f319aa0&oe=614ECE3E" alt="">
+                                    <span class="navbar__accountmodal--text">Luc Cui</span>
+                                </a>
+                            </li>
+                        </ul>
+                        <ul class="navbar__accountmodal--list">
+                            <li class="navbar__accountmodal--item">
+                                <a href="" class="navbar__accountmodal--link">
+                                    <span class="navbar__accountmodal--icon material-icons">
+                                        account_box
+                                    </span>
+                                    <span class="navbar__accountmodal--text">Your channel</span>
+                                </a>
+                            </li>
+                            <li class="navbar__accountmodal--item">
+                                <a href="" class="navbar__accountmodal--link">
+                                    <span class="navbar__accountmodal--icon material-icons">
+                                        monetization_on
+                                    </span>
+                                    <span class="navbar__accountmodal--text">Purchases and memberships</span>
+                                </a>
+                            </li>
+                            <li class="navbar__accountmodal--item">
+                                <a href="" class="navbar__accountmodal--link">
+                                    <span class="navbar__accountmodal--icon material-icons">
+                                        settings
+                                    </span>
+                                    <span class="navbar__accountmodal--text">Your studio</span>
+                                </a>
+                            </li>
+                            <li class="navbar__accountmodal--item">
+                                <a href="" class="navbar__accountmodal--link">
+                                    <span class="navbar__accountmodal--icon material-icons">
+                                        switch_account
+                                    </span>
+                                    <span class="navbar__accountmodal--text">Switch account</span>
+                                </a>
+                            </li>
+                            <li class="navbar__accountmodal--item">
+                                <a href="" class="navbar__accountmodal--link">
+                                    <span class="navbar__accountmodal--icon material-icons">
+                                        input
+                                    </span>
+                                    <span class="navbar__accountmodal--text">Sign out</span>
+                                </a>
+                            </li>
+                        </ul>
+                        <ul class="navbar__accountmodal--list">
+                            <li class="navbar__accountmodal--item">
+                                <a href="" class="navbar__accountmodal--link">
+                                    <span class="navbar__accountmodal--icon material-icons">
+                                        brightness_low
+                                    </span>
+                                    <span class="navbar__accountmodal--text">Apperance: Dark</span>
+                                </a>
+                            </li>
+                            <li class="navbar__accountmodal--item">
+                                <a href="" class="navbar__accountmodal--link">
+                                    <span class="navbar__accountmodal--icon material-icons">
+                                        translate
+                                    </span>
+                                    <span class="navbar__accountmodal--text">Language: English</span>
+                                </a>
+                            </li> 
+                            <li class="navbar__accountmodal--item">
+                                <a href="" class="navbar__accountmodal--link">
+                                    <span class="navbar__accountmodal--icon material-icons">
+                                        location_disabled
+                                    </span>
+                                    <span class="navbar__accountmodal--text">Language: English</span>
+                                </a>
+                            </li> 
+                            <li class="navbar__accountmodal--item">
+                                <a href="" class="navbar__accountmodal--link">
+                                    <span class="navbar__accountmodal--icon material-icons">
+                                        settings
+                                    </span>
+                                    <span class="navbar__accountmodal--text">Settings</span>
+                                </a>
+                            </li> 
+                            <li class="navbar__accountmodal--item">
+                                <a href="" class="navbar__accountmodal--link">
+                                    <span class="navbar__accountmodal--icon material-icons">
+                                        person_pin_circle
+                                    </span>
+                                    <span class="navbar__accountmodal--text">Your data in Youtube</span>
+                                </a>
+                            </li> 
+                            <li class="navbar__accountmodal--item">
+                                <a href="" class="navbar__accountmodal--link">
+                                    <span class="navbar__accountmodal--icon material-icons">
+                                        not_listed_location
+                                    </span>
+                                    <span class="navbar__accountmodal--text">Help</span>
+                                </a>
+                            </li> 
+                            <li class="navbar__accountmodal--item">
+                                <a href="" class="navbar__accountmodal--link">
+                                    <span class="navbar__accountmodal--icon material-icons">
+                                        messages
+                                    </span>
+                                    <span class="navbar__accountmodal--text">Send feedback</span>
+                                </a>
+                            </li> 
+                        </ul>
+                    </div>
+                </div>
+            </div>  
+        </nav>
+        <div class="content">
+            <div class="card__list">
+                <div class="card__item">
+                    <div class="card__item--header"> 
+                        <a href="./view.html">
+                            <div class="card__item--thumnail">
+                                <img class="" src="https://laravelnews.imgix.net/images/laravel-kafka-featured.png?ixlib=php-3.3.1" alt="">   
+                                <ul class="card__toolbox--list">
+                                    <li class="card__toolbox--item">
+                                        <span class="material-icons">
+                                            watch_later
+                                        </span> 
+                                    </li>
+                                    <li class="card__toolbox--item">
+                                        <span class="material-icons">
+                                            menu_open
+                                        </span> 
+                                    </li>
+                                </ul>
+                            </div> 
+                        </a>
+                        <span class="card__item--timestamp">2:22</span> 
+                    </div>
+                    <div class="card__body"> 
+                        <img class="card__user--avatar" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9vrnCKY5jx08FILppMWmHD2nQcRjJsCYaCQ&usqp=CAU" alt="">
+                        <div class="card__body--group">
+                            <div class="card__title">Hướng dẫn học CSS Grid toàn tập phần 1</div>
+                            <div class="card_user--name">Luc Cui</div>
+                            <div class="card__footer">
+                                <div class="card__footer--view">100k</div>
+                                <div class="card__footer--created">10 minutes ago</div>
+                            </div> 
+                        </div>
+                    </div>
+                </div>  
+                <div class="card__item">
+                    <div class="card__item--header">
+                        <a href="./view.html">
+                            <div class="card__item--thumnail">
+                                <img class="" src="https://wallpaperaccess.com/full/754903.jpg" alt=""> 
+                                <ul class="card__toolbox--list">
+                                    <li class="card__toolbox--item">
+                                        <span class="material-icons">
+                                            watch_later
+                                        </span> 
+                                    </li>
+                                    <li class="card__toolbox--item">
+                                        <span class="material-icons">
+                                            menu_open
+                                        </span> 
+                                    </li>
+                                </ul>
+                            </div>
+                        </a>
+                        <span class="card__item--timestamp">2:22</span> 
+                    </div>
+                    <div class="card__body"> 
+                        <img class="card__user--avatar" src="https://i.ytimg.com/vi/p25O5XivzFM/maxresdefault.jpg" alt="">
+                        <div class="card__body--group">
+                            <div class="card__title">Hướng dẫn học CSS Grid toàn tập phần 1</div>
+                            <div class="card_user--name">Luc Cui</div>
+                            <div class="card__footer">
+                                <div class="card__footer--view">100k</div>
+                                <div class="card__footer--created">10 minutes ago</div>
+                            </div> 
+                        </div>
+                    </div>
+                </div>  
+                <div class="card__item">
+                    <div class="card__item--header">
+                        <a href="./view.html">
+                            <div class="card__item--thumnail">
+                                <img class="" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREuJxhBe4LwcuCFi9bLkAIFfJdjrK7ZG4RPg&usqp=CAU" alt=""> 
+                                <ul class="card__toolbox--list">
+                                    <li class="card__toolbox--item">
+                                        <span class="material-icons">
+                                            watch_later
+                                        </span> 
+                                    </li>
+                                    <li class="card__toolbox--item">
+                                        <span class="material-icons">
+                                            menu_open
+                                        </span> 
+                                    </li>
+                                </ul>
+                            </div>
+                        </a>
+                        <span class="card__item--timestamp">2:22</span> 
+                    </div>
+                    <div class="card__body"> 
+                        <img class="card__user--avatar" src="https://i.ytimg.com/vi/JzhoD4_VN5k/hqdefault.jpg" alt="">
+                        <div class="card__body--group">
+                            <div class="card__title">Hướng dẫn học CSS Grid toàn tập phần 1</div>
+                            <div class="card_user--name">Luc Cui</div>
+                            <div class="card__footer">
+                                <div class="card__footer--view">100k</div>
+                                <div class="card__footer--created">10 minutes ago</div>
+                            </div> 
+                        </div>
+                    </div>
+                </div>  
+                <div class="card__item">
+                    <div class="card__item--header">
+                        <a href="./view.html">
+                            <div class="card__item--thumnail">
+                                <img class="" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0ORVgq49-bj6bqGXwduHnzmPg-h63ctFF7A&usqp=CAU" alt=""> 
+                                <ul class="card__toolbox--list">
+                                    <li class="card__toolbox--item">
+                                        <span class="material-icons">
+                                            watch_later
+                                        </span> 
+                                    </li>
+                                    <li class="card__toolbox--item">
+                                        <span class="material-icons">
+                                            menu_open
+                                        </span> 
+                                    </li>
+                                </ul>
+                            </div>
+                        </a>
+                        <span class="card__item--timestamp">2:22</span> 
+                    </div>
+                    <div class="card__body"> 
+                        <img class="card__user--avatar" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9o94rXiNG3ZndGYoy84XbIOpXnj_siNLStg&usqp=CAU" alt="">
+                        <div class="card__body--group">
+                            <div class="card__title">Hướng dẫn học CSS Grid toàn tập phần 1</div>
+                            <div class="card_user--name">Luc Cui</div>
+                            <div class="card__footer">
+                                <div class="card__footer--view">100k</div>
+                                <div class="card__footer--created">10 minutes ago</div>
+                            </div> 
+                        </div>
+                    </div>
+                </div>  
+                <div class="card__item">
+                    <div class="card__item--header">
+                        <a href="./view.html">
+                            <div class="card__item--thumnail">
+                                <img class="" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREuJxhBe4LwcuCFi9bLkAIFfJdjrK7ZG4RPg&usqp=CAU" alt=""> 
+                                <ul class="card__toolbox--list">
+                                    <li class="card__toolbox--item">
+                                        <span class="material-icons">
+                                            watch_later
+                                        </span> 
+                                    </li>
+                                    <li class="card__toolbox--item">
+                                        <span class="material-icons">
+                                            menu_open
+                                        </span> 
+                                    </li>
+                                </ul>
+                            </div>
+                        </a>
+                        <span class="card__item--timestamp">2:22</span> 
+                    </div>
+                    <div class="card__body"> 
+                        <img class="card__user--avatar" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2tFJyeAiCMZU9h_QRCMUStWlDSLzs8tVXlw&usqp=CAU" alt="">
+                        <div class="card__body--group">
+                            <div class="card__title">Hướng dẫn học CSS Grid toàn tập phần 1</div>
+                            <div class="card_user--name">Luc Cui</div>
+                            <div class="card__footer">
+                                <div class="card__footer--view">100k</div>
+                                <div class="card__footer--created">10 minutes ago</div>
+                            </div> 
+                        </div>
+                    </div>
+                </div>  
+                <div class="card__item">
+                    <div class="card__item--header">
+                        <a href="./view.html">
+                            <div class="card__item--thumnail">
+                                <img class="" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3YCC-Yg-JEuPLJzXwU67p1gnc9lFEa_SDRA&usqp=CAU" alt=""> 
+                                <ul class="card__toolbox--list">
+                                    <li class="card__toolbox--item">
+                                        <span class="material-icons">
+                                            watch_later
+                                        </span> 
+                                    </li>
+                                    <li class="card__toolbox--item">
+                                        <span class="material-icons">
+                                            menu_open
+                                        </span> 
+                                    </li>
+                                </ul>
+                            </div>
+                        </a>
+                        <span class="card__item--timestamp">2:22</span> 
+                    </div>
+                    <div class="card__body"> 
+                        <img class="card__user--avatar" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtEIIaDlOM8NsYyZOY3p1dKYqvKOI4Hs3jcQ&usqp=CAU" alt="">
+                        <div class="card__body--group">
+                            <div class="card__title">Hướng dẫn học CSS Grid toàn tập phần 1</div>
+                            <div class="card_user--name">Luc Cui</div>
+                            <div class="card__footer">
+                                <div class="card__footer--view">100k</div>
+                                <div class="card__footer--created">10 minutes ago</div>
+                            </div> 
+                        </div>
+                    </div>
+                </div>  
+                <div class="card__item">
+                    <div class="card__item--header">
+                        <a href="./view.html">
+                            <div class="card__item--thumnail">
+                                <img class="" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREuJxhBe4LwcuCFi9bLkAIFfJdjrK7ZG4RPg&usqp=CAU" alt=""> 
+                                <ul class="card__toolbox--list">
+                                    <li class="card__toolbox--item">
+                                        <span class="material-icons">
+                                            watch_later
+                                        </span> 
+                                    </li>
+                                    <li class="card__toolbox--item">
+                                        <span class="material-icons">
+                                            menu_open
+                                        </span> 
+                                    </li>
+                                </ul>
+                            </div>
+                        </a>
+                        <span class="card__item--timestamp">2:22</span> 
+                    </div>
+                    <div class="card__body"> 
+                        <img class="card__user--avatar" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREuJxhBe4LwcuCFi9bLkAIFfJdjrK7ZG4RPg&usqp=CAU" alt="">
+                        <div class="card__body--group">
+                            <div class="card__title">Hướng dẫn học CSS Grid toàn tập phần 1</div>
+                            <div class="card_user--name">Luc Cui</div>
+                            <div class="card__footer">
+                                <div class="card__footer--view">100k</div>
+                                <div class="card__footer--created">10 minutes ago</div>
+                            </div> 
+                        </div>
+                    </div>
+                </div>  
+                <div class="card__item">
+                    <div class="card__item--header">
+                        <a href="./view.html">
+                            <div class="card__item--thumnail">
+                                <img class="" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRvECrsXMmGJ0qUTJv7v-Znyq5I9xZSvjizQ&usqp=CAU" alt=""> 
+                                <ul class="card__toolbox--list">
+                                    <li class="card__toolbox--item">
+                                        <span class="material-icons">
+                                            watch_later
+                                        </span> 
+                                    </li>
+                                    <li class="card__toolbox--item">
+                                        <span class="material-icons">
+                                            menu_open
+                                        </span> 
+                                    </li>
+                                </ul>
+                            </div>
+                        </a>
+                        <span class="card__item--timestamp">2:22</span> 
+                    </div>
+                    <div class="card__body"> 
+                        <img class="card__user--avatar" src="https://images.pexels.com/photos/7519652/pexels-photo-7519652.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="">
+                        <div class="card__body--group">
+                            <div class="card__title">Hướng dẫn học CSS Grid toàn tập phần 1</div>
+                            <div class="card_user--name">Luc Cui</div>
+                            <div class="card__footer">
+                                <div class="card__footer--view">100k</div>
+                                <div class="card__footer--created">10 minutes ago</div>
+                            </div> 
+                        </div>
+                    </div>
+                </div>  
+                <div class="card__item">
+                    <div class="card__item--header">
+                        <a href="./view.html">
+                            <div class="card__item--thumnail">
+                                <img class="" src="https://nerdist.com/wp-content/uploads/2020/03/Legend-of-Zelda-Ocarina-of-Time-Lofi-Featured.jpg" alt=""> 
+                                <ul class="card__toolbox--list">
+                                    <li class="card__toolbox--item">
+                                        <span class="material-icons">
+                                            watch_later
+                                        </span> 
+                                    </li>
+                                    <li class="card__toolbox--item">
+                                        <span class="material-icons">
+                                            menu_open
+                                        </span> 
+                                    </li>
+                                </ul>
+                            </div>
+                        </a>
+                        <span class="card__item--timestamp">2:22</span> 
+                    </div>
+                    <div class="card__body"> 
+                        <img class="card__user--avatar" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlbYUotSi45Pf9jfTF7PPJeCoVrkSchtAD1Q&usqp=CAU" alt="">
+                        <div class="card__body--group">
+                            <div class="card__title">Hướng dẫn học CSS Grid toàn tập phần 1</div>
+                            <div class="card_user--name">Luc Cui</div>
+                            <div class="card__footer">
+                                <div class="card__footer--view">100k</div>
+                                <div class="card__footer--created">10 minutes ago</div>
+                            </div> 
+                        </div>
+                    </div>
+                </div>  
+                <div class="card__item">
+                    <div class="card__item--header">
+                        <a href="./view.html">
+                            <div class="card__item--thumnail">
+                                <img class="" src="https://lofi-defi.com/wp-content/uploads/2021/07/LOFI-DEFI-1200x628-02.jpg" alt=""> 
+                                <ul class="card__toolbox--list">
+                                    <li class="card__toolbox--item">
+                                        <span class="material-icons">
+                                            watch_later
+                                        </span> 
+                                    </li>
+                                    <li class="card__toolbox--item">
+                                        <span class="material-icons">
+                                            menu_open
+                                        </span> 
+                                    </li>
+                                </ul>
+                            </div>
+                        </a>
+                        <span class="card__item--timestamp">2:22</span> 
+                    </div>
+                    <div class="card__body"> 
+                        <img class="card__user--avatar" src="https://thumbs.dreamstime.com/b/lofi-vibes-sky-more-green-oxygen-222731478.jpg" alt="">
+                        <div class="card__body--group">
+                            <div class="card__title">Hướng dẫn học CSS Grid toàn tập phần 1</div>
+                            <div class="card_user--name">Luc Cui</div>
+                            <div class="card__footer">
+                                <div class="card__footer--view">100k</div>
+                                <div class="card__footer--created">10 minutes ago</div>
+                            </div> 
+                        </div>
+                    </div>
+                </div>  
+                <div class="card__item">
+                    <div class="card__item--header">
+                        <a href="./view.html">
+                            <div class="card__item--thumnail">
+                                <img class="" src="https://i1.sndcdn.com/artworks-kj7uRaSs6KykH2Cf-SUDoBw-t500x500.jpg" alt=""> 
+                                <ul class="card__toolbox--list">
+                                    <li class="card__toolbox--item">
+                                        <span class="material-icons">
+                                            watch_later
+                                        </span> 
+                                    </li>
+                                    <li class="card__toolbox--item">
+                                        <span class="material-icons">
+                                            menu_open
+                                        </span> 
+                                    </li>
+                                </ul>
+                            </div>
+                        </a>
+                        <span class="card__item--timestamp">2:22</span> 
+                    </div>
+                    <div class="card__body"> 
+                        <img class="card__user--avatar" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSiPOpWfifYclvDyl-zZXVC2riZlyl4tqnOCj1GcimgQZ8gL63ZWrsVNDFJ0BVrPnpLW0k&usqp=CAU" alt="">
+                        <div class="card__body--group">
+                            <div class="card__title">Hướng dẫn học CSS Grid toàn tập phần 1</div>
+                            <div class="card_user--name">Luc Cui</div>
+                            <div class="card__footer">
+                                <div class="card__footer--view">100k</div>
+                                <div class="card__footer--created">10 minutes ago</div>
+                            </div> 
+                        </div>
+                    </div>
+                </div>  
+                <div class="card__item">
+                    <div class="card__item--header">
+                        <a href="./view.html">
+                            <div class="card__item--thumnail">
+                                <img class="" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToGJ64enELJ_A1ZM5YX98U0FtsDi0Xp4juUg&usqp=CAU" alt=""> 
+                                <ul class="card__toolbox--list">
+                                    <li class="card__toolbox--item">
+                                        <span class="material-icons">
+                                            watch_later
+                                        </span> 
+                                    </li>
+                                    <li class="card__toolbox--item">
+                                        <span class="material-icons">
+                                            menu_open
+                                        </span> 
+                                    </li>
+                                </ul>
+                            </div>
+                        </a>
+                        <span class="card__item--timestamp">2:22</span> 
+                    </div>
+                    <div class="card__body"> 
+                        <img class="card__user--avatar" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNKN_J_ZP0q19VaD_YG0u9_kYRkaywsIFD4Q&usqp=CAU" alt="">
+                        <div class="card__body--group">
+                            <div class="card__title">Hướng dẫn học CSS Grid toàn tập phần 1</div>
+                            <div class="card_user--name">Luc Cui</div>
+                            <div class="card__footer">
+                                <div class="card__footer--view">100k</div>
+                                <div class="card__footer--created">10 minutes ago</div>
+                            </div> 
+                        </div>
+                    </div>
+                </div>  
+                <div class="card__item">
+                    <div class="card__item--header">
+                        <a href="./view.html">
+                            <div class="card__item--thumnail">
+                                <img class="" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsx6kdCO-XYhIZBu-2mQCYrXaVF3b3qlLBeg5Ft9qxH87k3zVvqkzQe-o41BHEbd2mFJ4&usqp=CAU" alt=""> 
+                                <ul class="card__toolbox--list">
+                                    <li class="card__toolbox--item">
+                                        <span class="material-icons">
+                                            watch_later
+                                        </span> 
+                                    </li>
+                                    <li class="card__toolbox--item">
+                                        <span class="material-icons">
+                                            menu_open
+                                        </span> 
+                                    </li>
+                                </ul>
+                            </div>
+                        </a>
+                        <span class="card__item--timestamp">2:22</span> 
+                    </div>
+                    <div class="card__body"> 
+                        <img class="card__user--avatar" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStk7dKOwdzVR2R43efrydHlnRcC_EAfum7HA&usqp=CAU" alt="">
+                        <div class="card__body--group">
+                            <div class="card__title">Hướng dẫn học CSS Grid toàn tập phần 1</div>
+                            <div class="card_user--name">Luc Cui</div>
+                            <div class="card__footer">
+                                <div class="card__footer--view">100k</div>
+                                <div class="card__footer--created">10 minutes ago</div>
+                            </div> 
+                        </div>
+                    </div>
+                </div>  
+                <div class="card__item">
+                    <div class="card__item--header">
+                        <a href="./view.html">
+                            <div class="card__item--thumnail">
+                                <img class="" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsx6kdCO-XYhIZBu-2mQCYrXaVF3b3qlLBeg5Ft9qxH87k3zVvqkzQe-o41BHEbd2mFJ4&usqp=CAU" alt=""> 
+                                <ul class="card__toolbox--list">
+                                    <li class="card__toolbox--item">
+                                        <span class="material-icons">
+                                            watch_later
+                                        </span> 
+                                    </li>
+                                    <li class="card__toolbox--item">
+                                        <span class="material-icons">
+                                            menu_open
+                                        </span> 
+                                    </li>
+                                </ul>
+                            </div>
+                        </a>
+                        <span class="card__item--timestamp">2:22</span> 
+                    </div>
+                    <div class="card__body"> 
+                        <img class="card__user--avatar" src="https://i.ytimg.com/vi/l7TxwBhtTUY/maxresdefault.jpg" alt="">
+                        <div class="card__body--group">
+                            <div class="card__title">Hướng dẫn học CSS Grid toàn tập phần 1</div>
+                            <div class="card_user--name">Luc Cui</div>
+                            <div class="card__footer">
+                                <div class="card__footer--view">100k</div>
+                                <div class="card__footer--created">10 minutes ago</div>
+                            </div> 
+                        </div>
+                    </div>
+                </div> 
+                <div class="card__item">
+                    <div class="card__item--header">
+                        <a href="./view.html">
+                            <div class="card__item--thumnail">
+                                <img class="" src="data:image/jpeg;base64,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" alt=""> 
+                                <ul class="card__toolbox--list">
+                                    <li class="card__toolbox--item">
+                                        <span class="material-icons">
+                                            watch_later
+                                        </span> 
+                                    </li>
+                                    <li class="card__toolbox--item">
+                                        <span class="material-icons">
+                                            menu_open
+                                        </span> 
+                                    </li>
+                                </ul>
+                            </div>
+                        </a>
+                        <span class="card__item--timestamp">2:22</span> 
+                    </div>
+                    <div class="card__body"> 
+                        <img class="card__user--avatar" src="data:image/jpeg;base64,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" alt="">
+                        <div class="card__body--group">
+                            <div class="card__title">Hướng dẫn học CSS Grid toàn tập phần 1</div>
+                            <div class="card_user--name">Luc Cui</div>
+                            <div class="card__footer">
+                                <div class="card__footer--view">100k</div>
+                                <div class="card__footer--created">10 minutes ago</div>
+                            </div> 
+                        </div>
+                    </div>
+                </div> 
+            </div>
+        </div>
+    </div>
+    <div class="" id="overlayBtn"></div>
+    <div class="mic__modal" id="micModal">
+        <span class="material-icons close" id="closeBtn">
+            close
+        </span>
+        <h3> Search with your voice</h3>
+        <p>To search by voice, go to your browser settings and allow access to microphone</p>
+        <span class="material-icons voice">
+            mic
+        </span> 
+    </div>
+    <script src="./script.js"></script>
+</body>
+</html>
